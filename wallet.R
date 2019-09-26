@@ -38,12 +38,9 @@ Rendimento= function(Abertura,Fechamento){
   rendimento_dia<-0
   for(i in 1:total){
     rendimento_dia[i]<-Fechamento[i]-Abertura[i]
-    #print(paste("termo= ",i))
   }
-  #rendimento_medio=mean(rendimento_dia)
   return(rendimento_dia)
 }
-length(BVSPA[,2])
 #calcula os rendimentos
 rendimento_BOV<-Rendimento(BVSPA[,2],BVSPA[,5])
 rendimento_PETR4<- Rendimento(PETR4[,2],PETR4[,5])
