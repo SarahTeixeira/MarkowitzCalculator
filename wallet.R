@@ -23,8 +23,21 @@
 ####################################################################################
 
 #importa arquivos de dados Petrobras
-PETR4.SA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv")
-View(PETR4.SA)
+PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv")
+View(PETR4)
 #importa arquivos Bovespa
 BVSPA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/^BVSP.csv")
 View(BVSPA)
+#Importa arquivos de ITSA4
+ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv")
+View(ITSA4)
+#funcao para calcular o rendimento diario
+Rendimeno= function(Abertura,Fechamento){
+  rendimento_dia<-Abertura-Fechamento
+  rendimento_medio=mean(rendimento_dia)
+  return(rendimento_medio)
+}
+
+
+
+
