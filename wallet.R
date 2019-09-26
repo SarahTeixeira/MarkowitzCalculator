@@ -57,6 +57,7 @@ Var_BOV<-var(rendimento_BOV)
 Var_PETR4<-var(rendimento_PETR4)
 Var_ITSA<-var(rendimento_ITSA)
 #Covariancias
+CoVar_BOV<-cov(rendimento_BOV,rendimento_PETR4)
 
 
 
