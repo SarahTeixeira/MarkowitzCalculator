@@ -21,6 +21,7 @@
 #####     4- A covariancia dos ativos;
 #####     5- A correlação entre eles.
 ####################################################################################
+library(IntroCompFinR)
 
 #importa arquivos de dados Petrobras
 PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv")
