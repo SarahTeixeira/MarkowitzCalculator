@@ -32,12 +32,14 @@ View(BVSPA)
 ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv")
 View(ITSA4)
 #funcao para calcular o rendimento diario
-Rendimeno= function(Abertura,Fechamento){
+Rendimento= function(Abertura,Fechamento){
   rendimento_dia<-Abertura-Fechamento
   rendimento_medio=mean(rendimento_dia)
   return(rendimento_medio)
 }
+length(BVSPA[,2])
 
+rendimento_BOV<-Rendimento(BVSPA[,2],BVSPA[])
 
 
 
