@@ -64,7 +64,7 @@ rendimento_medio
 #variancias
 Var_BOV<-var(retorno_BOV)
 Var_PETR4<-var(retorno_PETR4)
-Var_ITSA<-var(retorno_ITSA)
+Var_ITSA<-var(retorno_ITSA4)
 #Covariancias
 CoVar_BOV<-cov(rendimento_BOV,rendimento_PETR4)
 
