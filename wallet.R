@@ -27,11 +27,15 @@ library(IntroCompFinR)
 PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv")
 View(PETR4)
 #importa arquivos Bovespa
-BVSPA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/^BVSP.csv")
-View(BVSPA)
+IBOVESPA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/^BVSP.csv")
+View(IBOVESPA)
 #Importa arquivos de ITSA4
 ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv")
 View(ITSA4)
+#Importa o BOVA11
+BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv")
+View(BOVA)
+BOVA
 #funcao para calcular o retorno diario
 Retornos= function(Abertura,Fechamento){
   i<-0
@@ -43,15 +47,20 @@ Retornos= function(Abertura,Fechamento){
   return(rendimento_dia)
 }
 #calcula os rendimentos
-retorno_BOV<-Retornos(BVSPA[,2],BVSPA[,5])
+bova_abertura<-cbind(BOVA[,2])
+bova_fechamento<-cbind(BOVA[,5])
+retorno_BOV<-Retornos(bova_abertura,bova_fechamento)
+retorno_BOV
 retorno_PETR4<-Retornos(PETR4[,2],PETR4[,5])
 retorno_ITSA4<-Retornos(ITSA4[,2],ITSA4[,5])
 retornos_total<-cbind(retorno_BOV,retorno_PETR4,retorno_ITSA4)
 retornos_total
-#Medias
-rend_medio_BOV<-mean(rendimento_BOV)
-rend_medio_PETR4<-mean(rendimento_PETR4)
-rend_medio_ITSA<-mean(rendimento_ITSA)
+#Matriz de Medias
+rend_medio_BOV<-mean(retorno_BOV)
+rend_medio_PETR4<-mean(retorno_PETR4)
+rend_medio_ITSA<-mean(retorno_ITSA4)
+rendimento_medio<-rbind(rend_medio_BOV,rend_medio_PETR4,rend_medio_ITSA)
+rendimento_medio
 #variancias
 Var_BOV<-var(rendimento_BOV)
 Var_PETR4<-var(rendimento_PETR4)
