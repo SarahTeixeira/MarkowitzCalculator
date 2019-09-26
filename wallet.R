@@ -33,15 +33,32 @@ ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Pro
 View(ITSA4)
 #funcao para calcular o rendimento diario
 Rendimento= function(Abertura,Fechamento){
-  rendimento_dia<-Fechamento-Abertura
-  rendimento_medio=mean(rendimento_dia)
-  return(rendimento_medio)
+  i<-0
+  total<-length(Abertura)
+  rendimento_dia<-0
+  for(i in 1:total){
+    rendimento_dia[i]<-Fechamento[i]-Abertura[i]
+    #print(paste("termo= ",i))
+  }
+  #rendimento_medio=mean(rendimento_dia)
+  return(rendimento_dia)
 }
 length(BVSPA[,2])
 #calcula os rendimentos
 rendimento_BOV<-Rendimento(BVSPA[,2],BVSPA[,5])
 rendimento_PETR4<- Rendimento(PETR4[,2],PETR4[,5])
-rendimento_ITSA <- Rendimento(ISTA4[,2],ITSA4[,5])
+rendimento_ITSA <- Rendimento(ITSA4[,2],ITSA4[,5])
+#Medias
+rend_medio_BOV<-mean(rendimento_BOV)
+rend_medio_PETR4<-mean(rendimento_PETR4)
+rend_medio_ITSA<-mean(rendimento_ITSA)
+#variancias
+Var_BOV<-var(rendimento_BOV)
+Var_PETR4<-var(rendimento_PETR4)
+Var_ITSA<-var(rendimento_ITSA)
+#Covariancias
+
+
 
 
 
