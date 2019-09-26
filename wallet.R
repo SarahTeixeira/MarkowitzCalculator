@@ -43,9 +43,11 @@ Retornos= function(Abertura,Fechamento){
   return(rendimento_dia)
 }
 #calcula os rendimentos
-rentorno_BOV<-Retornos(BVSPA[,2],BVSPA[,5])
-rentorno_BOV<-Retornos(BVSPA[,2],BVSPA[,5])
-rentorno_BOV<-Retornos(BVSPA[,2],BVSPA[,5])
+retorno_BOV<-Retornos(BVSPA[,2],BVSPA[,5])
+retorno_PETR4<-Retornos(PETR4[,2],PETR4[,5])
+retorno_ITSA4<-Retornos(ITSA4[,2],ITSA4[,5])
+retornos_total<-cbind(retorno_BOV,retorno_PETR4,retorno_ITSA4)
+retornos_total
 #Medias
 rend_medio_BOV<-mean(rendimento_BOV)
 rend_medio_PETR4<-mean(rendimento_PETR4)
