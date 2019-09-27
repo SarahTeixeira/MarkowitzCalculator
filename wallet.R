@@ -57,21 +57,17 @@ retorno_PETR4<-Retornos(PETR4$Open,PETR4$Close)
 retorno_ITSA4<-Retornos(ITSA4$Open,ITSA4$Close)
 retornos_total<-cbind(retorno_MGLU3,retorno_PETR4,retorno_ITSA4)
 colnames(retornos_total)<-nomes 
-
 retornos_total
+
+
 #Matriz de Medias
-rend_medio_MGLU3<-mean(retorno_MGLU3)
-rend_medio_PETR4<-mean(retorno_PETR4)
-rend_medio_ITSA<-mean(retorno_ITSA4)
 rendimento_medio<-rbind(mean(retornos_total[,1]),mean(retornos_total[,2]),
                         mean(retornos_total[,3]))
 rownames(rendimento_medio)<-nomes
-#dim(rendimento_medio)
 rendimento_medio
+
+
 #Matriz das variancias
-Var_MGLU3<-var(retorno_MGLU3)
-Var_PETR4<-var(retorno_PETR4)
-Var_ITSA<-var(retorno_ITSA4)
 Variancias<-rbind(var(retornos_total[,1]),var(retornos_total[,2]),
                   var(retornos_total[,3]))
 rownames(Variancias)<-nomes
