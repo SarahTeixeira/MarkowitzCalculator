@@ -26,38 +26,26 @@ library(IntroCompFinR)
 #importa arquivos de dados Petrobras
 PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv",stringsAsFactors = F)
 #View(PETR4)
-#importa arquivos Bovespa
-IBOVESPA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/^BVSP.csv",stringsAsFactors = F)
-#View(IBOVESPA)
 #Importa arquivos de ITSA4
 ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv",stringsAsFactors = F)
 #View(ITSA4)
-#Importa o BOVA11
-BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv",stringsAsFactors = F)
-#View(BOVA)
-BOVA
 #importa dados magazineluiza
 MGLU3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/MGLU3.SA.csv", stringsAsFactors=FALSE)
 #View(MGLU3)
-
+#Importa o BOVA11, para mais tarde tratar as excecoes
+BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv",stringsAsFactors = F)
+#View(BOVA)
 
 
 #funcao para calcular o retorno diario
-Retornos= function(Abertura,Fechamento){#nao precisei do for
-  #Nao sei o que fazer mas algum if
-  
+Retornos= function(Abertura,Fechamento){
+  #Não é necessario o uso do for aqui
   rendimento_dia<-Fechamento-Abertura
   return(rendimento_dia)
 }
-
+#nomes para facilitar a leitura
 nomes<-c("PETROBRAS","ITAU","MAGALU")
 
-#calcula os rendimentos
-retorno_MGLU3<-Retornos(MGLU3$Open,MGLU3$Close)
-retorno_PETR4<-Retornos(PETR4$Open,PETR4$Close)
-retorno_ITSA4<-Retornos(ITSA4$Open,ITSA4$Close)
-retornos_total<-cbind(retorno_BOV,retorno_PETR4,retorno_ITSA4)
-=======
 ##BOVA,PETR4,ITSA4 são dataframes por isso os dados de abertura e fechamento
 ## acabaram se tornando factors
 ## em BOVA11 temos duas ocorrencias de dias registradas como null
@@ -69,7 +57,7 @@ retorno_PETR4<-Retornos(PETR4$Open,PETR4$Close)
 retorno_ITSA4<-Retornos(ITSA4$Open,ITSA4$Close)
 retornos_total<-cbind(retorno_MGLU3,retorno_PETR4,retorno_ITSA4)
 colnames(retornos_total)<-nomes 
->>>>>>> desenvolvimento
+
 retornos_total
 #Matriz de Medias
 rend_medio_MGLU3<-mean(retorno_MGLU3)
