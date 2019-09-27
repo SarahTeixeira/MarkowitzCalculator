@@ -51,7 +51,7 @@ bova_abertura<-cbind(BOVA[,2])
 bova_fechamento<-cbind(BOVA[,5])
 retorno_BOV<-Retornos(bova_abertura,bova_fechamento)
 retorno_BOV
-retorno_PETR4<-Retornos(PETR4[,2],PETR4[,5])
+retorno_PETRO4<-Retornos(PETR4[,2],PETR4[,5])
 retorno_ITSA4<-Retornos(ITSA4[,2],ITSA4[,5])
 retornos_total<-cbind(retorno_BOV,retorno_PETR4,retorno_ITSA4)
 retornos_total
