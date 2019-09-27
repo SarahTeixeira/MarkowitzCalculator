@@ -61,14 +61,17 @@ rend_medio_PETR4<-mean(retorno_PETR4)
 rend_medio_ITSA<-mean(retorno_ITSA4)
 rendimento_medio<-rbind(rend_medio_BOV,rend_medio_PETR4,rend_medio_ITSA)
 rendimento_medio
-#variancias
+#Matriz das variancias
 Var_BOV<-var(retorno_BOV)
 Var_PETR4<-var(retorno_PETR4)
 Var_ITSA<-var(retorno_ITSA4)
-#Covariancias
-CoVar_BOV<-cov(rendimento_BOV,rendimento_PETR4)
-
-
-
-
+Variancias<-rbind(Var_BOV,Var_PETR4,Var_ITSA)
+Variancias
+#Matriz de Covariancias
+CoVariancias<-cov(retornos_total)
+CoVariancias
+#Matriz de Correlações
+Correlacao<-cor(CoVariancias)
+Correlacao
+#Graficos para visulizar a saídas
 
