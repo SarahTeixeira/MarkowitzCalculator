@@ -50,12 +50,12 @@ Retornos= function(Abertura,Fechamento){
 #calcula os rendimentos
 ##BOVA,PETR4,ITSA4 são dataframes por isso os dados de abertura e fechamento
 ## acabaram se tornando factors
-bova_abertura<-cbind(BOVA$Open)
-bova_fechamento<-cbind(BOVA$Close)
-retorno_BOV<-Retornos(bova_abertura,bova_fechamento)
+## em BOVA11 temos duas ocorrencias de dias registradas como null
+## vou trata-las
+retorno_BOV<-Retornos(as.numeric(BOVA$Open),as.numeric(BOVA$Close))
 retorno_BOV
-retorno_PETR4<-Retornos(PETR4[,2],PETR4[,5])
-retorno_ITSA4<-Retornos(ITSA4[,2],ITSA4[,5])
+retorno_PETR4<-Retornos(PETR4$Open,PETR4$Close)
+retorno_ITSA4<-Retornos(ITSA4$Open,ITSA4$Close)
 retornos_total<-cbind(retorno_BOV,retorno_PETR4,retorno_ITSA4)
 retornos_total
 #Matriz de Medias
