@@ -38,6 +38,7 @@ View(BOVA)
 BOVA
 #funcao para calcular o retorno diario
 Retornos= function(Abertura,Fechamento){#nao precisei do for
+  #Nao sei o que fazer mas algum if
   rendimento_dia<-Fechamento-Abertura
   return(rendimento_dia)
 }
