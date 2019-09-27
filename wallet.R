@@ -37,13 +37,8 @@ BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Proj
 View(BOVA)
 BOVA
 #funcao para calcular o retorno diario
-Retornos= function(Abertura,Fechamento){
-  i<-0
-  total<-length(Abertura)
-  rendimento_dia<-0
-  for(i in 1:total){
-    rendimento_dia[i]<-Fechamento[i]-Abertura[i]
-  }
+Retornos= function(Abertura,Fechamento){#nao precisei do for
+  rendimento_dia<-Fechamento-Abertura
   return(rendimento_dia)
 }
 
