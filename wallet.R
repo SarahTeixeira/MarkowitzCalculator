@@ -52,23 +52,24 @@ Retornos= function(Abertura,Fechamento){#nao precisei do for
 ## acabaram se tornando factors
 ## em BOVA11 temos duas ocorrencias de dias registradas como null
 ## vou trata-las
-retorno_BOV<-Retornos(as.numeric(BOVA$Open),as.numeric(BOVA$Close))
-retorno_BOV
+#retorno_BOV<-Retornos(as.numeric(BOVA$Open),as.numeric(BOVA$Close))
+#retorno_BOV
+retorno_MGLU3<-Retornos(MGLU3$Open,MGLU3$Close)
 retorno_PETR4<-Retornos(PETR4$Open,PETR4$Close)
 retorno_ITSA4<-Retornos(ITSA4$Open,ITSA4$Close)
-retornos_total<-cbind(retorno_BOV,retorno_PETR4,retorno_ITSA4)
+retornos_total<-cbind(retorno_MGLU3,retorno_PETR4,retorno_ITSA4)
 retornos_total
 #Matriz de Medias
-rend_medio_BOV<-mean(retorno_BOV)
+rend_medio_MGLU3<-mean(retorno_MGLU3)
 rend_medio_PETR4<-mean(retorno_PETR4)
 rend_medio_ITSA<-mean(retorno_ITSA4)
-rendimento_medio<-rbind(rend_medio_BOV,rend_medio_PETR4,rend_medio_ITSA)
+rendimento_medio<-rbind(rend_medio_MGLU3,rend_medio_PETR4,rend_medio_ITSA)
 rendimento_medio
 #Matriz das variancias
-Var_BOV<-var(retorno_BOV)
+Var_MGLU3<-var(retorno_MGLU3)
 Var_PETR4<-var(retorno_PETR4)
 Var_ITSA<-var(retorno_ITSA4)
-Variancias<-rbind(Var_BOV,Var_PETR4,Var_ITSA)
+Variancias<-rbind(Var_MGLU3,Var_PETR4,Var_ITSA)
 Variancias
 #Matriz de Covariancias
 CoVariancias<-cov(retornos_total)
