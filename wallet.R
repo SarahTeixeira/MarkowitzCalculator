@@ -24,16 +24,16 @@
 library(IntroCompFinR)
 
 #importa arquivos de dados Petrobras
-PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv")
+PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv",stringsAsFactors = F)
 View(PETR4)
 #importa arquivos Bovespa
-IBOVESPA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/^BVSP.csv")
+IBOVESPA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/^BVSP.csv",stringsAsFactors = F)
 View(IBOVESPA)
 #Importa arquivos de ITSA4
-ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv")
+ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv",stringsAsFactors = F)
 View(ITSA4)
 #Importa o BOVA11
-BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv")
+BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv",stringsAsFactors = F)
 View(BOVA)
 BOVA
 #funcao para calcular o retorno diario
@@ -46,9 +46,12 @@ Retornos= function(Abertura,Fechamento){
   }
   return(rendimento_dia)
 }
+
 #calcula os rendimentos
-bova_abertura<-cbind(BOVA[,2])
-bova_fechamento<-cbind(BOVA[,5])
+##BOVA,PETR4,ITSA4 são dataframes por isso os dados de abertura e fechamento
+## acabaram se tornando factors
+bova_abertura<-cbind(BOVA$Open)
+bova_fechamento<-cbind(BOVA$Close)
 retorno_BOV<-Retornos(bova_abertura,bova_fechamento)
 retorno_BOV
 retorno_PETR4<-Retornos(PETR4[,2],PETR4[,5])
