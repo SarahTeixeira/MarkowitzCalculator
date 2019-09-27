@@ -25,20 +25,23 @@ library(IntroCompFinR)
 
 #importa arquivos de dados Petrobras
 PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/PETR4.SA.csv",stringsAsFactors = F)
-View(PETR4)
+#View(PETR4)
 #importa arquivos Bovespa
 IBOVESPA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/^BVSP.csv",stringsAsFactors = F)
-View(IBOVESPA)
+#View(IBOVESPA)
 #Importa arquivos de ITSA4
 ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv",stringsAsFactors = F)
-View(ITSA4)
+#View(ITSA4)
 #Importa o BOVA11
 BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv",stringsAsFactors = F)
-View(BOVA)
+#View(BOVA)
 BOVA
 #importa dados magazineluiza
 MGLU3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/MGLU3.SA.csv", stringsAsFactors=FALSE)
-View(MGLU3)
+#View(MGLU3)
+
+
+
 #funcao para calcular o retorno diario
 Retornos= function(Abertura,Fechamento){#nao precisei do for
   #Nao sei o que fazer mas algum if
@@ -46,6 +49,8 @@ Retornos= function(Abertura,Fechamento){#nao precisei do for
   rendimento_dia<-Fechamento-Abertura
   return(rendimento_dia)
 }
+
+nomes<-c("PETROBRAS","ITAU","MAGALU")
 
 #calcula os rendimentos
 ##BOVA,PETR4,ITSA4 são dataframes por isso os dados de abertura e fechamento
@@ -58,19 +63,26 @@ retorno_MGLU3<-Retornos(MGLU3$Open,MGLU3$Close)
 retorno_PETR4<-Retornos(PETR4$Open,PETR4$Close)
 retorno_ITSA4<-Retornos(ITSA4$Open,ITSA4$Close)
 retornos_total<-cbind(retorno_MGLU3,retorno_PETR4,retorno_ITSA4)
+colnames(retornos_total)<-nomes 
 retornos_total
 #Matriz de Medias
 rend_medio_MGLU3<-mean(retorno_MGLU3)
 rend_medio_PETR4<-mean(retorno_PETR4)
 rend_medio_ITSA<-mean(retorno_ITSA4)
-rendimento_medio<-rbind(rend_medio_MGLU3,rend_medio_PETR4,rend_medio_ITSA)
+rendimento_medio<-rbind(mean(retornos_total[,1]),mean(retornos_total[,2]),
+                        mean(retornos_total[,3]))
+rownames(rendimento_medio)<-nomes
+#dim(rendimento_medio)
 rendimento_medio
 #Matriz das variancias
 Var_MGLU3<-var(retorno_MGLU3)
 Var_PETR4<-var(retorno_PETR4)
 Var_ITSA<-var(retorno_ITSA4)
-Variancias<-rbind(Var_MGLU3,Var_PETR4,Var_ITSA)
+Variancias<-rbind(var(retornos_total[,1]),var(retornos_total[,2]),
+                  var(retornos_total[,3]))
+rownames(Variancias)<-nomes
 Variancias
+
 #Matriz de Covariancias
 CoVariancias<-cov(retornos_total)
 CoVariancias
