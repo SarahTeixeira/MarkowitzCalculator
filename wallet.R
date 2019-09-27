@@ -36,9 +36,13 @@ View(ITSA4)
 BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv",stringsAsFactors = F)
 View(BOVA)
 BOVA
+#importa dados magazineluiza
+MGLU3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/MGLU3.SA.csv", stringsAsFactors=FALSE)
+View(MGLU3)
 #funcao para calcular o retorno diario
 Retornos= function(Abertura,Fechamento){#nao precisei do for
   #Nao sei o que fazer mas algum if
+  
   rendimento_dia<-Fechamento-Abertura
   return(rendimento_dia)
 }
