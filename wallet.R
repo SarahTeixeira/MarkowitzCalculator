@@ -24,7 +24,7 @@
 library(IntroCompFinR)
 
 #importa arquivos de dados Petrobras
-PETR4 <- <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/PETR4.SA.csv", stringsAsFactors=FALSE)
+PETR4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/PETR4.SA.csv", stringsAsFactors=FALSE)
 #View(PETR4)
 #Importa arquivos de ITSA4
 ITSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/ITSA4.SA.csv", stringsAsFactors=FALSE)
