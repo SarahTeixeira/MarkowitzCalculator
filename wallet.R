@@ -119,3 +119,5 @@ Correlacao<-cor(CoVariancias)
 Correlacao
 #Graficos para visulizar a saídas
 
+print("hello")
+
