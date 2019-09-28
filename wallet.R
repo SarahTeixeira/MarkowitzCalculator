@@ -44,7 +44,7 @@ BBSA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Proj
 #Importa dados Azul linhas aéreas
 AZUL4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/AZUL4.SA.csv", stringsAsFactors=FALSE)
 #Importa dados
-MERV <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/^MERV.csv", stringsAsFactors=FALSE)
+MERV <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/MERV.csv", stringsAsFactors=FALSE)
 #Importa dados Via Varejo (Vivara)
 VVAR3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/VVAR3.SA.csv", stringsAsFactors=FALSE)
 #Importa dados MDIAS Branco
