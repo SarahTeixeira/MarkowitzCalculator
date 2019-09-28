@@ -35,6 +35,21 @@ MGLU3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Pro
 #Importa o BOVA11, para mais tarde tratar as excecoes
 BOVA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BOVA11.SA.csv",stringsAsFactors = F)
 #View(BOVA)
+#Importa dados Bradesco
+BBDC4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BBDC4.SA.csv", stringsAsFactors=FALSE)
+#Importa dados Fleury
+FLRY3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/FLRY3.SA.csv", stringsAsFactors=FALSE)
+#Importa dados Banco do Brasil
+BBSA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BBAS3.SA.csv", stringsAsFactors=FALSE)
+#Importa dados Azul linhas aéreas
+AZUL4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/AZUL4.SA.csv", stringsAsFactors=FALSE)
+#Importa dados
+MERV <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/^MERV.csv", stringsAsFactors=FALSE)
+#Importa dados Via Varejo (Vivara)
+VVAR3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/VVAR3.SA.csv", stringsAsFactors=FALSE)
+#Importa dados MDIAS Branco
+MDIA3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/MDIA3.SA.csv", stringsAsFactors=FALSE)
+
 
 
 #funcao para calcular o retorno diario
