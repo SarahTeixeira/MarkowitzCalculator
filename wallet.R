@@ -40,7 +40,7 @@ BBDC4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Pro
 #Importa dados Fleury
 FLRY3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/FLRY3.SA.csv", stringsAsFactors=FALSE)
 #Importa dados Banco do Brasil
-BBSA <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BBAS3.SA.csv", stringsAsFactors=FALSE)
+BBSA4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/BBAS3.SA.csv", stringsAsFactors=FALSE)
 #Importa dados Azul linhas aéreas
 AZUL4 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/AZUL4.SA.csv", stringsAsFactors=FALSE)
 #Importa dados
@@ -50,7 +50,8 @@ VVAR3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Pro
 #Importa dados MDIAS Branco
 MDIA3 <- read.csv("C:/Users/pedro/RStudioProjects/Markowitz/Markowitz_wallet/Projeto/MDIA3.SA.csv", stringsAsFactors=FALSE)
 
-
+#nomes para facilitar a leitura
+nomes<-c("PETROBRAS","ITAU","MAGALU","BRADESCO","FLEURY","BB","AZUL","VIVARA","MDIAS")
 
 #funcao para calcular o retorno diario
 Retornos= function(Abertura,Fechamento){
@@ -58,8 +59,7 @@ Retornos= function(Abertura,Fechamento){
   rendimento_dia<-Fechamento-Abertura
   return(rendimento_dia)
 }
-#nomes para facilitar a leitura
-nomes<-c("PETROBRAS","ITAU","MAGALU")
+
 
 ##BOVA,PETR4,ITSA4 são dataframes por isso os dados de abertura e fechamento
 ## acabaram se tornando factors
@@ -67,24 +67,37 @@ nomes<-c("PETROBRAS","ITAU","MAGALU")
 ## vou trata-las
 #retorno_BOV<-Retornos(as.numeric(BOVA$Open),as.numeric(BOVA$Close))
 #retorno_BOV
-retorno_MGLU3<-Retornos(MGLU3$Open,MGLU3$Close)
 retorno_PETR4<-Retornos(PETR4$Open,PETR4$Close)
 retorno_ITSA4<-Retornos(ITSA4$Open,ITSA4$Close)
-retornos_total<-cbind(retorno_MGLU3,retorno_PETR4,retorno_ITSA4)
+retorno_MGLU3<-Retornos(MGLU3$Open,MGLU3$Close)
+retorno_BRAD4<-Retornos(BBDC4$Open,BBDC4$Close)
+retorno_FLRY3<-Retornos(FLRY3$Open,FLRY3$Close)
+retorno_BBSA4<-Retornos(BBSA4$Open,BBSA4$Close)
+retorno_AZUL4<-Retornos(AZUL4$Open,AZUL4$Close)
+retorno_VVAR3<-Retornos(VVAR3$Open,VVAR3$Close)
+retorno_MDIA3<-Retornos(MDIA3$Open,MDIA3$Close)
+
+retornos_total<-cbind(retorno_PETR4,retorno_ITSA4,retorno_MGLU3,retorno_BRAD4,
+                      retorno_FLRY3,retorno_BBSA4,retorno_AZUL4,retorno_VVAR3,
+                      retorno_MDIA3)
 colnames(retornos_total)<-nomes 
 retornos_total
 
 
 #Matriz de Medias
 rendimento_medio<-rbind(mean(retornos_total[,1]),mean(retornos_total[,2]),
-                        mean(retornos_total[,3]))
+                        mean(retornos_total[,3]),mean(retornos_total[,4]),mean(retornos_total[,5]),
+                        mean(retornos_total[,6]),mean(retornos_total[,7]),mean(retornos_total[,8]),
+                        mean(retornos_total[,9]))
 rownames(rendimento_medio)<-nomes
 rendimento_medio
 
 
 #Matriz das variancias
 Variancias<-rbind(var(retornos_total[,1]),var(retornos_total[,2]),
-                  var(retornos_total[,3]))
+                  var(retornos_total[,3]),var(retornos_total[,4]),var(retornos_total[,5])
+                  ,var(retornos_total[,6]),var(retornos_total[,7]),var(retornos_total[,8])
+                  ,var(retornos_total[,9]))
 rownames(Variancias)<-nomes
 Variancias
 
