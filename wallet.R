@@ -20,7 +20,17 @@
 #####     3- A variancia deste rendimento;
 #####     4- A covariancia dos ativos;
 #####     5- A correlação entre eles.
+##### PS:  Caso você não tenha as bibliotecas a seguir instaladas basta, desmarcar 
+##### o sinal de comentário (#) e rodar as linhas abaixo para instalá-las,
+##### lembre-se de deixar rodar até o final o procedimento.
 ####################################################################################
+
+#install.packages("quadprog")
+
+#install.packages("PerformanceAnalytics")
+
+#install.packages("IntroCompFinR", repos="http://R-Forge.R-project.org")
+
 library(IntroCompFinR)
 
 #importa arquivos de dados Petrobras
